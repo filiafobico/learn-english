@@ -57,6 +57,12 @@
       "ts"
     ],
     "rootDir": "src",
+    "moduleNameMapper": {
+      "@api/(.*)": ["<rootDir>/api/$1"],
+      "@app/(.*)": ["<rootDir>/app/$1"],
+      "@domain/(.*)": ["<rootDir>/domain/$1"],
+      "@infra/(.*)": ["<rootDir>/infra/$1"]
+    },
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
