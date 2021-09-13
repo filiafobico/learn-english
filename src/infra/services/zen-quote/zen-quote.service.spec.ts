@@ -1,9 +1,11 @@
 import { IQuote } from '@domain/entities/quote';
 import { Test, TestingModule } from '@nestjs/testing';
+import { AxiosInstance } from 'axios';
 import { ZenQuoteService } from './zen-quote.service';
 
 describe('ZenQuoteService', () => {
   let zenQuoteService: ZenQuoteService;
+  let axios: AxiosInstance;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -26,6 +28,7 @@ describe('ZenQuoteService', () => {
     }).compile();
 
     zenQuoteService = module.get<ZenQuoteService>(ZenQuoteService);
+    axios = module.get<AxiosInstance>('AXIOS');
   });
 
   it('should be defined', () => {
@@ -39,5 +42,11 @@ describe('ZenQuoteService', () => {
     };
 
     expect(await zenQuoteService.random()).toEqual(result);
+  });
+
+  it('should call axios with right params', async () => {
+    await zenQuoteService.random();
+
+    expect(axios.get).toBeCalledWith('https://zenquotes.io/api/random');
   });
 });
