@@ -5,6 +5,7 @@ import { GetRandomQuote } from './app/get-random-quote';
 import { GoogleTranslateService } from './infra/services/google-translate/google-translate.service';
 import axios from 'axios';
 import { TranslationServiceClient } from '@google-cloud/translate';
+import { TranslatePhrase } from './app/translate-phrase';
 
 @Module({
   imports: [],
@@ -21,6 +22,7 @@ import { TranslationServiceClient } from '@google-cloud/translate';
       useValue: new TranslationServiceClient(),
     },
     GoogleTranslateService,
+    TranslatePhrase,
   ],
 })
 export class AppModule {}
