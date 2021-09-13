@@ -21,6 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@google-cloud/translate": "^6.2.7",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
@@ -59,10 +60,18 @@
     ],
     "rootDir": "src",
     "moduleNameMapper": {
-      "@api/(.*)": ["<rootDir>/api/$1"],
-      "@app/(.*)": ["<rootDir>/app/$1"],
-      "@domain/(.*)": ["<rootDir>/domain/$1"],
-      "@infra/(.*)": ["<rootDir>/infra/$1"]
+      "@api/(.*)": [
+        "<rootDir>/api/$1"
+      ],
+      "@app/(.*)": [
+        "<rootDir>/app/$1"
+      ],
+      "@domain/(.*)": [
+        "<rootDir>/domain/$1"
+      ],
+      "@infra/(.*)": [
+        "<rootDir>/infra/$1"
+      ]
     },
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
