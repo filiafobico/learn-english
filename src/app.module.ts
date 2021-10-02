@@ -6,10 +6,12 @@ import { GoogleTranslateService } from './infra/services/google-translate/google
 import axios from 'axios';
 import { TranslationServiceClient } from '@google-cloud/translate';
 import { TranslatePhrase } from './app/translate-phrase';
+import { GetLesson } from './app/get-lesson';
+import { LessonController } from './api/lesson/lesson.controller';
 
 @Module({
   imports: [],
-  controllers: [QuoteController],
+  controllers: [QuoteController, LessonController],
   providers: [
     ZenQuoteService,
     GetRandomQuote,
@@ -23,6 +25,7 @@ import { TranslatePhrase } from './app/translate-phrase';
     },
     GoogleTranslateService,
     TranslatePhrase,
+    GetLesson,
   ],
 })
 export class AppModule {}
